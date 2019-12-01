@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<body background="https://i0.wp.com/onlyvectorbackgrounds.com/wp-content/uploads/2019/06/Light-Flat-Shapes-Simple-Background-Silver.jpg?w=1191&ssl=1"></body>
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Deletion</title>
+    <link rel="stylesheet" th:href="@{/css/topnav.css}"/>
+</head>
+<body>
+<div class="topnav">
+    <a class="active" th:href="@{'/home'} + '/' + ${user.id}">Home</a>
+    <a th:href="@{'/home/create'} + '/' + ${user.id}">Create post</a>
+    <a th:href="@{'/home/subs'} + '/' + ${user.id}">See users</a>
+    <a th:href="@{/}">Logout</a>
+</div>
+
+<div class="container">
+    <h1>Delete this post?</h1>
+    <form th:action="@{/delete} + '/' + ${user.id} " method="post">
+
+        <input type="hidden" th:field="${delete.id}" th:object="${delete}">
+
+
+        <h2><td th:text="${delete.title}"></td></h2>
+
+        <td th:text="${delete.body}"></td>
+        <br>
+        <input type="submit" class="btn btn-success" value="Delete">
+        <a type="button" class="btn btn-danger" th:href="@{/home} + '/' + ${user.id}">Back</a>
+    </form>
+</div>
+</body>
+<div>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</div>
+</html>

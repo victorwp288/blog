@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<body background="https://i0.wp.com/onlyvectorbackgrounds.com/wp-content/uploads/2019/06/Light-Flat-Shapes-Simple-Background-Silver.jpg?w=1191&ssl=1"></body>
+<link th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" rel="stylesheet" media="screen"/>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+<div class="container">
+    <h1>login</h1>
+    <form method="post" th:action="@{/}">
+        <div><label for="userName">Username:</label></div>
+        <input type="text" th:field="${user.username}" id="userName" th:value="*{username}" placeholder="username"
+               onfocus="this.placeholder=''" onblur="this.placeholder='Username'">
+
+        <div><label for="password">Password:</label></div>
+        <input type="password" th:field="${user.password}" id="password" th:value="*{password}" placeholder="password"
+               onfocus="this.placeholder=''" onblur="this.placeholder='password'">
+
+        <input type="submit" class="btn btn-success" value="Login">
+    </form>
+</div>
+</body>
+<div>
+    <script th:src="@{/webjars/jquery/3.1.1/jquery.min.js}"></script>
+</div>
+</html>
